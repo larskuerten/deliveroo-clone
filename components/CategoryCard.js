@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
+// import sanityClient, { urlFor } from "../sanity";
 
 const CategoryCard = ({ imgUrl, title }) => {
   return (

@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, LogBox, Image } from "react-native";
 import React, { useEffect, useState } from "react";
-import sanityClient, { urlFor } from "../sanity";
+import sanityClient from "../sanity";
 import RestaurantCard from "./RestaurantCard";
 
 const FeaturedRow = ({ id, title, description }) => {
@@ -25,9 +25,8 @@ const FeaturedRow = ({ id, title, description }) => {
       )
       .then((data) => {
         setRestaurants(data?.restaurants);
-        console.log(" 💯👍" + restaurants[0].image.asset._ref);
       });
-  }, []);
+  }, [id]);
 
   return (
     <View>
@@ -46,13 +45,6 @@ const FeaturedRow = ({ id, title, description }) => {
         {/* //! RestaurantCards */}
         {restaurants?.map((restaurant) => {
           return (
-            // <Text>eeee</Text>
-            // <Image
-            //   source={{
-            //     uri: urlFor(restaurant.image.asset._ref).url(),
-            //   }}
-            //   className="h-36 w-64 rounded-sm"
-            // />
             <RestaurantCard
               key={restaurant._id}
               id={restaurant._id}

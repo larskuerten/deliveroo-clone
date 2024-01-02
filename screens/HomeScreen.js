@@ -42,11 +42,10 @@ const HomeScreen = () => {
       )
       .then((data) => {
         setFeaturedCategories(data);
-        // console.log(" 👎 " + featuredCategories[0].name);
       });
   }, []);
   return (
-    <SafeAreaView className="pt-6 bg-white">
+    <SafeAreaView className="pt-6 bg-white mb-16">
       {/* //? Header */}
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
         <Image
@@ -81,7 +80,6 @@ const HomeScreen = () => {
         {/* //? Categories */}
         <Categories />
         {/* //! Featured Rows */}
-        {/* <Text>{featuredCategories[1].name}</Text> */}
         {featuredCategories?.map((category) => {
           return (
             <FeaturedRow
@@ -92,18 +90,6 @@ const HomeScreen = () => {
             />
           );
         })}
-        {/* //? Tasty Discounts */}
-        {/* <FeaturedRow
-          id="1234"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discount!"
-        /> */}
-        {/* //? Offers near you */}
-        {/* <FeaturedRow
-          id="1235"
-          title="Offers near you"
-          description="Why not support your local restaurant tonight!"
-        /> */}
       </ScrollView>
     </SafeAreaView>
   );
